@@ -1,0 +1,3 @@
+set_intersection(result.begin(),result.end(),letters.begin(),letters.end(),back_inserter(answer));
+
+transform(s.begin(),s.end(),s.begin(),::toupper);
