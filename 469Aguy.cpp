@@ -24,18 +24,26 @@ int main(int argc, char** argv){
     freopen("output.txt", "w", stdout);
     #endif // ONLINE_JUDGE
     int n;cin>>n;
-    set<int> p;
-    vector<int> q;
-    int number;
+    int p;cin>>p;
+    vector<int> p_levels,q_levels,result;
+    fo(i,p){
+        int temp;cin>>temp;
+        p_levels.push_back(temp);
+    }
+    int q;cin>>q;
+    fo(i,q){
+        int temp;cin>>temp;
+        q_levels.push_back(temp);
+    }
+    sortall(p_levels);
+    sortall(q_levels);
+    set_union(all(p_levels),all(q_levels),back_inserter(result));
 
-    while(cin>>number){
-        p.insert(number);
+    if(result.size()==n)
+    cout<<"I become the guy."<<endl;
+    else{
+        cout<<"Oh, my keyboard!"<<endl;
     }
-    int sum = accumulate(all(p),0);
-    if(sum==((n*(n+1))/2)){
-        cout<<"I become the guy.";
-    }else{
-        cout<<"Oh, my keyboard!";
-    }
+
     return 0;
 }
